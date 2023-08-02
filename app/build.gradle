@@ -60,7 +60,7 @@ dependencies {
 
     // 谷歌兼容库：https://developer.android.google.cn/jetpack/androidx/releases/appcompat?hl=zh-cn
     // noinspection GradleCompatible
-    implementation 'androidx.appcompat:appcompat:1.5.0'
+    implementation "androidx.appcompat:appcompat:$rootProject.ext.appcompat"
 
     // 吐司框架：https://github.com/getActivity/Toaster
     implementation 'com.github.getActivity:Toaster:12.2'
