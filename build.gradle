@@ -9,11 +9,11 @@ buildscript {
         maven { url 'https://jitpack.io' }
         mavenCentral()
         google()
-        // noinspection JcenterRepositoryObsolete
-        jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:4.1.2'
+        classpath 'com.android.tools.build:gradle:7.2.2'
+        classpath 'com.github.dcendents:android-maven-gradle-plugin:2.1'
+
     }
 }
 
@@ -25,8 +25,6 @@ allprojects {
         maven { url 'https://jitpack.io' }
         mavenCentral()
         google()
-        // noinspection JcenterRepositoryObsolete
-        jcenter()
     }
 
     // 将构建文件统一输出到项目根目录下的 build 文件夹
@@ -35,4 +33,13 @@ allprojects {
 
 task clean(type: Delete) {
     delete rootProject.buildDir
+}
+
+
+ext {
+    compileSdkVersion = 33
+    minSdkVersion = 26
+    targetSdkVersion = 30
+    buildToolsVersion = '30.0.3'
+    appcompat = '1.5.0'
 }

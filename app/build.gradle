@@ -1,21 +1,21 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 33
+    compileSdkVersion rootProject.ext.compileSdkVersion
 
     defaultConfig {
         applicationId "com.hjq.permissions.demo"
-        minSdkVersion 16
-        targetSdkVersion 33
+        minSdk rootProject.ext.minSdkVersion
+        targetSdk rootProject.ext.targetSdkVersion
         versionCode 1802
         versionName "18.2"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
     }
 
-    // 使用 JDK 1.8
+    // 使用 JDK 11
     compileOptions {
-        targetCompatibility JavaVersion.VERSION_1_8
-        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_11
+        sourceCompatibility JavaVersion.VERSION_11
     }
 
     // Apk 签名的那些事：https://www.jianshu.com/p/a1f8e5896aa2
@@ -58,7 +58,7 @@ dependencies {
 
     // 谷歌兼容库：https://developer.android.google.cn/jetpack/androidx/releases/appcompat?hl=zh-cn
     // noinspection GradleCompatible
-    implementation 'com.android.support:appcompat-v7:28.0.0'
+    implementation 'androidx.appcompat:appcompat:1.0.0'
 
     // 吐司框架：https://github.com/getActivity/Toaster
     implementation 'com.github.getActivity:Toaster:12.2'

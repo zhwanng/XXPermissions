@@ -1,29 +1,30 @@
-apply plugin: 'com.android.library'
+plugins {
+    id 'com.android.library'
+    id 'maven-publish'
+}
+
+def group = 'com.github.zhwanng'
+def libVersion = "1.0.0"
+def libCode = 1
 
 android {
-    compileSdkVersion 33
+    compileSdkVersion rootProject.ext.compileSdkVersion
 
     defaultConfig {
-        minSdkVersion 14
-        versionCode 1802
-        versionName "18.2"
+        minSdk rootProject.ext.minSdkVersion
+        targetSdk rootProject.ext.targetSdkVersion
+        versionCode libCode
+        versionName libVersion
     }
 
-    // 使用 JDK 1.8
+    // 使用 JDK 11
     compileOptions {
-        targetCompatibility JavaVersion.VERSION_1_8
-        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_11
+        sourceCompatibility JavaVersion.VERSION_11
     }
 
     lintOptions {
         abortOnError false
-    }
-
-    android.libraryVariants.all { variant ->
-        // aar 输出文件名配置
-        variant.outputs.all { output ->
-            outputFileName = "${rootProject.name}-${android.defaultConfig.versionName}.aar"
-        }
     }
 
     packagingOptions {
@@ -38,11 +39,22 @@ afterEvaluate {
     generateDebugBuildConfig.enabled = false
     generateReleaseResValues.enabled = false
     generateDebugResValues.enabled = false
+
+    publishing {
+        publications {
+            release(MavenPublication) {
+                from components.release
+                groupId = group
+                artifactId = 'XXPermissions'
+                version = libVersion
+            }
+        }
+    }
 }
 
 dependencies {
     // noinspection GradleCompatible
-    implementation 'com.android.support:support-fragment:24.2.0'
+    implementation 'androidx.fragment:fragment:1.0.0'
 }
 
 tasks.withType(Javadoc) {
