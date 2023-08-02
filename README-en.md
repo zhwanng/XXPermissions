@@ -1,3 +1,5 @@
+[![](https://jitpack.io/v/zhwanng/XXPermissions.svg)](https://jitpack.io/#zhwanng/XXPermissions)
+
 # [中文文档](README.md)
 
 # Permission request framework

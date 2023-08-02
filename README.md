@@ -1,3 +1,5 @@
+[![](https://jitpack.io/v/zhwanng/XXPermissions.svg)](https://jitpack.io/#zhwanng/XXPermissions)
+
 # [English Doc](README-en.md)
 
 # 权限请求框架
